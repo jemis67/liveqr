@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Live QR code generator with Knockout</title>
+  
+  
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-colorpicker/3.0.0-beta.1/css/bootstrap-colorpicker.css'>
+
+      <link rel="stylesheet" href="./style.css">
+
+  
+</head>
+
+<body>
+
+  
+<div class="container-fluid">
+  <div class="row">
+    <div class="offset-md-3 col-md-6 my-4">
+      <h4 class="fadeIn">Simple QR code generator</h4>
+    </div>
+  </div>
+  <div class="row">
+    <div class="offset-md-3" data-bind="css: QRtext() !== '' ? 'col-md-4' : 'col-md-6'">
+      <form class="fadeIn">
+        <div class="form-group">
+          <textarea class="form-control" type="text" data-bind="textInput: QRtext"></textarea>
+        </div>
+      </form>
+      <div class="row my-4">
+        <div class="col-md-6">
+          <label for="fg-color">Foreground</label>
+          <input class="form-control color-select" id="fg-color" type="text" data-bind="textInput: fg"/>
+        </div>
+        <div class="col-md-6">
+          <label for="bg-color">Background</label>
+          <input class="form-control color-select" id="bg-color" type="text" data-bind="textInput: bg"/>
+        </div>
+        <div class="col-md-6 my-4">
+          <label for="quality">Quality level</label>
+          <select class="form-control" id="quality" data-bind="options: quality_select, value: quality, optionsText: 'name'"></select>
+        </div>
+        <div class="col-md-6 my-4">
+          <label for="format">Output format</label>
+          <select class="form-control" id="format" data-bind="options: format_select, value: format, optionsText: 'name'"></select>
+        </div>
+      </div>
+      <button class="btn btn-block btn-primary fadeIn" data-bind="click: clearAll">Clear</button>
+    </div>
+    <div class="col-md-2 fadeIn" data-bind="style: { display: QRtext() !== '' ? 'block' : 'none' }"><img class="qr-code" data-bind="attr: {src: QRlink}"/></div>
+  </div>
+</div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-colorpicker/3.0.0-beta.1/js/bootstrap-colorpicker.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/downloadjs/1.4.7/download.js'></script>
+
+  
+
+    <script  src="./script.js"></script>
+
+
+
+
+</body>
+
+</html>
